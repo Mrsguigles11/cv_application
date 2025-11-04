@@ -2,5 +2,6 @@
     display: flex;
     justify-content: center;
     padding: 20px;
-    position: sticky;
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
