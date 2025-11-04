@@ -1,0 +1,19 @@
+
+.input_section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px 20px 30px;
+    gap: 20px;
+}
+
+.input_section > h1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+}
