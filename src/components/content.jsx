@@ -3,10 +3,12 @@ import InputSection from "./input_section";
 import CV from "./cv";
 
 function Content() {
-  const [generalInfo, setGeneralInfo] = useState('');
+  const [generalInfo, setGeneralInfo] = useState(['', '', '']);
 
-  function handleChange(text) {
-    setGeneralInfo(text);
+  function handleChange(text, index) {
+    let updatedArray = [...generalInfo];
+    updatedArray[index] = text;
+    setGeneralInfo(updatedArray);
   }
 
   return (
