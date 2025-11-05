@@ -8,7 +8,7 @@ function InputSection({ heading, inputs, onChange }) {
         return (
           <div className='input' key={input}>
             <label htmlFor={input}>{input}</label>
-            <input type="text" name={input} onChange={(e) => onChange(e.target.value)}/>
+            <input type="text" name={input} onChange={(e) => onChange(e.target.value, inputs.indexOf(input))}/>
           </div>
         );
       })}
