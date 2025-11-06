@@ -3,12 +3,14 @@ import InputSection from "./input_section";
 import CV from "./cv";
 
 function Content() {
-  const [generalInfo, setGeneralInfo] = useState(['', '', '']);
+  const [cvContent, setcvContent] = useState({
+    "General Information": { 0: "", 1: "", 2: "" },
+  });
 
-  function handleChange(text, index) {
-    let updatedArray = [...generalInfo];
-    updatedArray[index] = text;
-    setGeneralInfo(updatedArray);
+  function handleChange(text, section, index) {
+    let updatedObject = {...cvContent};
+    updatedObject[section][index] = text;
+    setcvContent(updatedObject);
   }
 
   return (
@@ -21,7 +23,7 @@ function Content() {
         />
       </div>
       <div className="cv_container">
-        <CV text={generalInfo}></CV>
+        <CV text={cvContent}></CV>
       </div>
     </>
   );
