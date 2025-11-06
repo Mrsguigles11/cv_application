@@ -4,12 +4,12 @@ import CV from "./cv";
 
 function Content() {
   const [cvContent, setcvContent] = useState({
-    "General Information": { 0: "", 1: "", 2: "" },
+    "General Information": { Name: "", Email: "", "Phone Number": "" },
   });
 
-  function handleChange(text, section, index) {
-    let updatedObject = {...cvContent};
-    updatedObject[section][index] = text;
+  function handleChange(text, section, input) {
+    let updatedObject = { ...cvContent };
+    updatedObject[section][input] = text;
     setcvContent(updatedObject);
   }
 
