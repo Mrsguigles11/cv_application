@@ -3,7 +3,7 @@ import "../styles/input_section.css";
 function InputSection({ heading, inputs, onChange, content }) {
   return (
     <div className="input_section">
-      <h1>{heading}</h1>
+      <h2>{heading}</h2>
       {inputs.map((input) => {
         if (input === "Profile") {
           return (

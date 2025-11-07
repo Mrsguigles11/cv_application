@@ -5,5 +5,32 @@
 .cv {
     min-height: 400px;
     border: 2px solid black;
-    padding: 20px;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    background-color: white;
+}
+
+.details_container {
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+}
+
+.details_container > div {
+    font-size: 0.8em;
+}
+
+h2 {
+    font-size: 2em;
+    text-align: center;
+}
+
+h3 {
+    margin-top: 10px;
+}
+
+.profile {
+    padding-left: 20px;
 }

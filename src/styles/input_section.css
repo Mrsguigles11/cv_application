@@ -2,24 +2,32 @@
 .input_section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border: 2px solid black;
+    border: 4px solid rgb(152, 209, 255);
     border-radius: 10px;
     padding: 20px 20px 30px;
     gap: 20px;
 }
 
-.input_section > h1 {
+.input_section > h2 {
     grid-column-start: 1;
     grid-column-end: 3;
-}
+    font-size: 2em;
+    color: rgb(152, 209, 255);}
 
 .input {
     display: flex;
     flex-direction: column;
 }
 
+.input > label {
+    color: white;
+    margin-bottom: 5px;
+}
+
 input {
     padding: 5px;
+    border-radius: 5px;
+    border: none;
 }
 
 div:nth-child(6) {
@@ -32,4 +40,5 @@ div:nth-child(6) > textarea {
     font-family: inherit;
     padding: 5px;
     resize: none;
+    border-radius: 5px;
 }
