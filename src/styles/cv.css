@@ -19,7 +19,14 @@
 }
 
 .details_container > div {
+    display: flex;
     font-size: 0.8em;
+    column-gap: 3px;
+}
+
+img {
+    height: 18px;
+    padding-top: 2px;
 }
 
 h2 {

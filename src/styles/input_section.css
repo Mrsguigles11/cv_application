@@ -2,17 +2,30 @@
 .input_section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border: 4px solid rgb(152, 209, 255);
+    border: 4px solid var(--secondary-color);
     border-radius: 10px;
     padding: 20px 20px 30px;
     gap: 20px;
 }
 
-.input_section > h2 {
+.input_heading_container {
     grid-column-start: 1;
     grid-column-end: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 7px;
+}
+
+svg {
+    height: 33px;
+    fill: var(--secondary-color);
+    margin-top: 3px;
+}
+
+.input_heading_container > h2 {
     font-size: 2em;
-    color: rgb(152, 209, 255);}
+    color: var(--secondary-color);}
 
 .input {
     display: flex;

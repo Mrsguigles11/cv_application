@@ -1,9 +1,12 @@
 import "../styles/input_section.css";
 
-function InputSection({ heading, inputs, onChange, content }) {
+function InputSection({ heading, inputs, onChange, content, symbol }) {
   return (
     <div className="input_section">
+      <div className="input_heading_container">
       <h2>{heading}</h2>
+      {symbol}
+      </div>
       {inputs.map((input) => {
         if (input === "Profile") {
           return (
