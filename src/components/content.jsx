@@ -1,5 +1,6 @@
 import { useState } from "react";
-import InputSection from "./input_section";
+import InputGeneralInfo from "./input_gen_info";
+import InputEducationalExperience from "./input_edu_exp";
 import CV from "./cv";
 
 function Content() {
@@ -25,23 +26,29 @@ function Content() {
     setcvContent(updatedObject);
   }
 
+  function handleHeadingClick (index) {
+  const collapsibleContents = document.querySelectorAll('.collapsible_content');
+  const inputSections = document.querySelectorAll('.input_section');
+  collapsibleContents[index].className === "collapsible_content hidden" ? collapsibleContents[index].className = "collapsible_content visible" : collapsibleContents[index].className = "collapsible_content hidden";
+  inputSections[index].className === "input_section" ? inputSections[index].className = "input_section expanded" : inputSections[index].className = "input_section";
+}
+
   return (
     <>
       <div className="inputs_container">
-        <InputSection
+        <InputGeneralInfo
           heading={"General Information"}
-          symbol={<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>account-circle</title><path d="M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z" /></svg>}
           inputs={["Name", "Email", "Phone Number", "Github", "Profile"]}
           onChange={handleChange}
+          headingClick={handleHeadingClick}
           content={cvContent}
-          index={0}
         />
-        <InputSection 
+        <InputEducationalExperience 
           heading={"Educational Experience"}
           inputs={["School Name", "Study", "Date of Study"]}
           onChange={handleChange}
+          headingClick={handleHeadingClick}
           content={cvContent}
-          index={1}
           />
       </div>
       <div className="cv_container">
