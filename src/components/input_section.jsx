@@ -1,16 +1,16 @@
 import "../styles/input_section.css";
 
-function handleClick () {
-  const collapsibleContent = document.querySelector('.collapsible_content');
-  const inputSection = document.querySelector('.input_section');
-  collapsibleContent.className === "collapsible_content hidden" ? collapsibleContent.className = "collapsible_content visible" : collapsibleContent.className = "collapsible_content hidden";
-  inputSection.className === "input_section" ? inputSection.className = "input_section expanded" : inputSection.className = "input_section";
+function handleClick (index) {
+  const collapsibleContents = document.querySelectorAll('.collapsible_content');
+  const inputSections = document.querySelectorAll('.input_section');
+  collapsibleContents[index].className === "collapsible_content hidden" ? collapsibleContents[index].className = "collapsible_content visible" : collapsibleContents[index].className = "collapsible_content hidden";
+  inputSections[index].className === "input_section" ? inputSections[index].className = "input_section expanded" : inputSections[index].className = "input_section";
 }
 
-function InputSection({ heading, inputs, onChange, content, symbol }) {
+function InputSection({ heading, inputs, onChange, content, symbol, index }) {
   return (
     <div className="input_section">
-      <div className="input_heading_container" onClick={handleClick}>
+      <div className="input_heading_container" onClick={() => handleClick(index)}>
         <h2>{heading}</h2>
         {symbol}
       </div>
