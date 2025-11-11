@@ -24,3 +24,21 @@
     height: 25px;
     cursor: pointer;
 }
+
+.collapsible_content > button {
+    font-family: inherit;
+    grid-row-start: 4;
+    grid-column: 1 / 3;
+    width: 80px;
+    height: 40px;
+    justify-self: center;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.collapsible_content > button:hover {
+    background-color: rgb(228, 228, 228);
+}

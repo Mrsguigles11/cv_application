@@ -53,6 +53,7 @@ function InputEducationalExperience({
             </div>
           );
         })}
+        <button>Submit</button>
       </div>
     </div>
   );
