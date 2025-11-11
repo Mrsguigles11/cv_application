@@ -1,4 +1,3 @@
-import "../styles/input_section.css";
 
 function InputGeneralInfo({ heading, inputs, onChange, content, headingClick }) {
   return (
@@ -10,24 +9,29 @@ function InputGeneralInfo({ heading, inputs, onChange, content, headingClick }) 
       <div className="collapsible_content hidden">
         {inputs.map((input) => {
           return (
-            <div className="input" key={input}>
+            <>
+            {input === "Profile" ? (
+              <div className="input profile_input" key={input}>
               <label htmlFor={input}>{input}</label>
-              {input === "Profile" ? (
-                <textarea
-                  spellCheck={false}
-                  name={input}
-                  onChange={(e) => onChange(e.target.value, heading, input)}
-                  value={content[heading][input]}
-                />
-              ) : (
-                <input
-                  type="text"
-                  name={input}
-                  onChange={(e) => onChange(e.target.value, heading, input)}
-                  value={content[heading][input]}
-                />
-              )}
-            </div>
+              <textarea
+                spellCheck={false}
+                name={input}
+                onChange={(e) => onChange(e.target.value, heading, input)}
+                value={content[heading][input]}
+              />
+              </div>
+            ) : (
+              <div className="input" key={input}>
+              <label htmlFor={input}>{input}</label>
+              <input
+                type="text"
+                name={input}
+                onChange={(e) => onChange(e.target.value, heading, input)}
+                value={content[heading][input]}
+              />
+              </div>
+            )}
+            </>
           );
         })}
       </div>

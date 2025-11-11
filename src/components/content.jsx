@@ -2,6 +2,8 @@ import { useState } from "react";
 import InputGeneralInfo from "./input_gen_info";
 import InputEducationalExperience from "./input_edu_exp";
 import CV from "./cv";
+import "../styles/input_section.css";
+
 
 function Content() {
   const [cvContent, setcvContent] = useState({
@@ -15,7 +17,7 @@ function Content() {
     },
     "Educational Experience" : {
       inputs: {
-        "Pembury" : ["Primary School", "2000 - 2010"]
+        "University of Greenwich" : ["BSc Digital Film Production", "2016 - 2020"],
       },
       "School Name" : "",
       Study : "", 
