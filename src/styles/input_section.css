@@ -8,7 +8,7 @@
 }
 
 .input_section.expanded {
-    max-height: 500px;
+    max-height: 1000px;
 }
 
 .input_heading_container:hover {
@@ -53,7 +53,6 @@
 svg {
     height: 33px;
     fill: var(--secondary-color);
-    margin-top: 3px;
 }
 
 .input_heading_container > h2 {
