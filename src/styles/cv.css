@@ -8,17 +8,18 @@
     padding: 20px 40px;
     display: flex;
     flex-direction: column;
-    row-gap: 5px;
+    row-gap: 10px;
     background-color: white;
 }
 
-.details_container {
+.gen_info_container {
     display: flex;
     justify-content: center;
     column-gap: 10px;
+    margin-top: -10px;
 }
 
-.details_container > div {
+.gen_info_container > div {
     display: flex;
     font-size: 0.8em;
     column-gap: 3px;
@@ -38,6 +39,22 @@ h2 {
     margin-top: 10px;
 }
 
-.profile {
+.education {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.profile, .education {
     padding-left: 20px;
+}
+
+.school {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.school_name {
+    font-weight: 600;
 }

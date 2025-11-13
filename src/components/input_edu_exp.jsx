@@ -18,8 +18,11 @@ function InputEducationalExperience({
     const dateOfStudy = document.querySelector('input[name="Date of Study"]');
     const study = document.querySelector('textarea[name="Study"]');
     const currentInputs = { ...content["Educational Experience"]["inputs"] };
-    currentInputs[schoolName.value] = [[dateOfStudy.value], [study.value]];
+    currentInputs[schoolName.value] = [[study.value], [dateOfStudy.value]];
     onChange(currentInputs, "Educational Experience", "inputs");
+    schoolName.value = "";
+    dateOfStudy.value = "";
+    study.value = "";
   }
 
   return (
