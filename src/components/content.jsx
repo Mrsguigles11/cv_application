@@ -34,7 +34,7 @@ function Content() {
   function handleHeadingClick (index) {
   const collapsibleContents = document.querySelectorAll('.collapsible_content');
   const inputSections = document.querySelectorAll('.input_section');
-  collapsibleContents[index].className === "collapsible_content hidden" ? collapsibleContents[index].className = "collapsible_content visible" : collapsibleContents[index].className = "collapsible_content hidden";
+  collapsibleContents[index].className === "collapsible_content cc_hidden" ? collapsibleContents[index].className = "collapsible_content cc_visible" : collapsibleContents[index].className = "collapsible_content cc_hidden";
   inputSections[index].className === "input_section" ? inputSections[index].className = "input_section expanded" : inputSections[index].className = "input_section";
 }
 
@@ -50,7 +50,7 @@ function Content() {
         />
         <InputEducationalExperience 
           heading={"Educational Experience"}
-          inputs={["School Name", "Study", "Date of Study"]}
+          inputs={["School Name", "Date of Study", "Study"]}
           onChange={handleChange}
           headingClick={handleHeadingClick}
           content={cvContent}

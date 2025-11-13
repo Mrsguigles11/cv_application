@@ -35,10 +35,26 @@
     border-radius: 10px;
     border: none;
     background-color: white;
-    margin-top: 10px;
     cursor: pointer;
+    margin-top: -10px;
 }
 
 .collapsible_content > button:hover {
     background-color: rgb(228, 228, 228);
+}
+
+.study_input {
+    grid-column: 1 / 3;
+}
+
+.edu_exp_inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding-bottom: 0;
+    grid-column: 1 / 3;
+}
+
+.study_input > textarea {
+    min-height: 40px;
 }

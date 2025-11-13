@@ -23,7 +23,7 @@ function InputEducationalExperience({
           <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z" />
         </svg>
       </div>
-      <div className="collapsible_content hidden">
+      <div className="collapsible_content cc_hidden">
         {Object.entries(content["Educational Experience"]["inputs"]).map(
           ([school, details]) => {
             return (
@@ -40,19 +40,33 @@ function InputEducationalExperience({
             );
           }
         )}
+        <div className="edu_exp_inputs">
         {inputs.map((input) => {
           return (
-            <div className="input" key={input}>
+            <>
+            {input === "Study" ? (
+              <div className="input study_input" key={input}>
+              <label htmlFor={input}>{input}</label>
+              <textarea
+                spellCheck={false}
+                name={input}
+                onChange={(e) => onChange(e.target.value, heading, input)}
+              />
+              </div>
+            ) : (
+              <div className="input" key={input}>
               <label htmlFor={input}>{input}</label>
               <input
                 type="text"
                 name={input}
                 onChange={(e) => onChange(e.target.value, heading, input)}
-                value={content[heading][input]}
               />
-            </div>
+              </div>
+            )}
+            </>
           );
         })}
+        </div>
         <button>Submit</button>
       </div>
     </div>
