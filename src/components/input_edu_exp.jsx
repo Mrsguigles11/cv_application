@@ -1,4 +1,5 @@
 import "../styles/input_edu_exp.css";
+import { useState } from "react";
 
 function InputEducationalExperience({
   heading,
@@ -7,22 +8,40 @@ function InputEducationalExperience({
   content,
   headingClick,
 }) {
+
+  const [buttonClickHandler, setButtonClickHandler] = useState(() => intialiseAddEduEx)
+
   function removeEduEx(school) {
     let currentInputs = { ...content["Educational Experience"]["inputs"] };
     delete currentInputs[school];
     onChange(currentInputs, "Educational Experience", "inputs");
   }
 
+  function intialiseAddEduEx() {
+    const eduExpInputs = document.querySelector('.edu_exp_inputs_hidden');
+
+    eduExpInputs.className = "edu_exp_inputs_visible";
+    setButtonClickHandler(() => addEduEx)
+
+  }
+
   function addEduEx() {
     const schoolName = document.querySelector('input[name="School Name"]');
     const dateOfStudy = document.querySelector('input[name="Date of Study"]');
     const study = document.querySelector('textarea[name="Study"]');
+    const eduExpInputs = document.querySelector('.edu_exp_inputs_visible');
+
     const currentInputs = { ...content["Educational Experience"]["inputs"] };
     currentInputs[schoolName.value] = [[study.value], [dateOfStudy.value]];
     onChange(currentInputs, "Educational Experience", "inputs");
     schoolName.value = "";
     dateOfStudy.value = "";
     study.value = "";
+    eduExpInputs.className = "edu_exp_inputs_hidden";
+
+
+    setButtonClickHandler(() => intialiseAddEduEx)
+    
   }
 
   return (
@@ -58,7 +77,7 @@ function InputEducationalExperience({
             );
           }
         )}
-        <div className="edu_exp_inputs">
+        <div className="edu_exp_inputs_hidden">
           {inputs.map((input) => {
             return (
               <>
@@ -84,8 +103,9 @@ function InputEducationalExperience({
               </>
             );
           })}
-          <button onClick={addEduEx}>Add</button>
         </div>
+        <button onClick={buttonClickHandler} className="add_button">Add</button>
+
       </div>
     </div>
   );
