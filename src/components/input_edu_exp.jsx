@@ -8,8 +8,9 @@ function InputEducationalExperience({
   content,
   headingClick,
 }) {
-
-  const [buttonClickHandler, setButtonClickHandler] = useState(() => intialiseAddEduEx)
+  const [buttonClickHandler, setButtonClickHandler] = useState(
+    () => intialiseAddEduEx
+  );
 
   function removeEduEx(school) {
     let currentInputs = { ...content["Educational Experience"]["inputs"] };
@@ -18,18 +19,17 @@ function InputEducationalExperience({
   }
 
   function intialiseAddEduEx() {
-    const eduExpInputs = document.querySelector('.edu_exp_inputs_hidden');
+    const eduExpInputs = document.querySelector(".edu_exp_inputs_hidden");
 
     eduExpInputs.className = "edu_exp_inputs_visible";
-    setButtonClickHandler(() => addEduEx)
-
+    setButtonClickHandler(() => addEduEx);
   }
 
   function addEduEx() {
     const schoolName = document.querySelector('input[name="School Name"]');
     const dateOfStudy = document.querySelector('input[name="Date of Study"]');
     const study = document.querySelector('textarea[name="Study"]');
-    const eduExpInputs = document.querySelector('.edu_exp_inputs_visible');
+    const eduExpInputs = document.querySelector(".edu_exp_inputs_visible");
 
     const currentInputs = { ...content["Educational Experience"]["inputs"] };
     currentInputs[schoolName.value] = [[study.value], [dateOfStudy.value]];
@@ -39,9 +39,7 @@ function InputEducationalExperience({
     study.value = "";
     eduExpInputs.className = "edu_exp_inputs_hidden";
 
-
-    setButtonClickHandler(() => intialiseAddEduEx)
-    
+    setButtonClickHandler(() => intialiseAddEduEx);
   }
 
   return (
@@ -82,7 +80,7 @@ function InputEducationalExperience({
             return (
               <>
                 {input === "Study" ? (
-                  <div className="input study_input" key={input}>
+                  <div className="study_input" key={input}>
                     <label htmlFor={input}>{input}</label>
                     <textarea
                       spellCheck={false}
@@ -104,8 +102,9 @@ function InputEducationalExperience({
             );
           })}
         </div>
-        <button onClick={buttonClickHandler} className="add_button">Add</button>
-
+        <button onClick={buttonClickHandler} className="add_button">
+          Add
+        </button>
       </div>
     </div>
   );
