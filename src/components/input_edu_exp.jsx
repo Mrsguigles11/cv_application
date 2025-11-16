@@ -3,7 +3,6 @@ import { useState } from "react";
 
 function InputEducationalExperience({
   heading,
-  inputs,
   onChange,
   content,
   headingClick,
@@ -13,14 +12,13 @@ function InputEducationalExperience({
   );
 
   function removeEduEx(school) {
-    let currentInputs = { ...content["Educational Experience"]["inputs"] };
+    let currentInputs = { ...content["Educational Experience"]["inputs"]};
     delete currentInputs[school];
     onChange(currentInputs, "Educational Experience", "inputs");
   }
 
   function intialiseAddEduEx() {
     const eduExpInputs = document.querySelector(".edu_exp_inputs_hidden");
-
     eduExpInputs.className = "edu_exp_inputs_visible";
     setButtonClickHandler(() => addEduEx);
   }
@@ -31,7 +29,7 @@ function InputEducationalExperience({
     const study = document.querySelector('textarea[name="Study"]');
     const eduExpInputs = document.querySelector(".edu_exp_inputs_visible");
 
-    const currentInputs = { ...content["Educational Experience"]["inputs"] };
+    const currentInputs = { ...content["Educational Experience"]["inputs"]};
     currentInputs[schoolName.value] = [[study.value], [dateOfStudy.value]];
     onChange(currentInputs, "Educational Experience", "inputs");
     schoolName.value = "";
@@ -40,6 +38,12 @@ function InputEducationalExperience({
     eduExpInputs.className = "edu_exp_inputs_hidden";
 
     setButtonClickHandler(() => intialiseAddEduEx);
+  }
+
+  function handleChange(value, input) {
+    const currentInputs = { ...content["Educational Experience"]["currentInput"]};
+    currentInputs[input] = value;
+    onChange(currentInputs, "Educational Experience", "currentInput");
   }
 
   return (
@@ -76,31 +80,31 @@ function InputEducationalExperience({
           }
         )}
         <div className="edu_exp_inputs_hidden">
-          {inputs.map((input) => {
-            return (
-              <>
-                {input === "Study" ? (
-                  <div className="study_input" key={input}>
-                    <label htmlFor={input}>{input}</label>
-                    <textarea
-                      spellCheck={false}
-                      name={input}
-                      onChange={(e) => onChange(e.target.value, heading, input)}
-                    />
-                  </div>
-                ) : (
-                  <div className="input" key={input}>
-                    <label htmlFor={input}>{input}</label>
-                    <input
-                      type="text"
-                      name={input}
-                      onChange={(e) => onChange(e.target.value, heading, input)}
-                    />
-                  </div>
-                )}
-              </>
-            );
-          })}
+          <div className="input" key={"School Name"}>
+            <label htmlFor={"School Name"}>{"School Name"}</label>
+            <input
+              type="text"
+              name={"School Name"}
+              onChange={(e) => handleChange(e.target.value, "schoolName")}
+            />
+          </div>
+          <div className="input" key={"Date of Study"}>
+            <label htmlFor={"Date of Study"}>{"Date of Study"}</label>
+            <input
+              type="text"
+              name={"Date of Study"}
+              onChange={(e) => handleChange(e.target.value, "dateOfStudy")}
+
+            />
+          </div>
+          <div className="study_input" key={"Study"}>
+            <label htmlFor={"Study"}>{"Study"}</label>
+            <textarea
+              spellCheck={false}
+              name={"Study"}
+              onChange={(e) => handleChange(e.target.value, "study")}
+            />
+          </div>
         </div>
         <button onClick={buttonClickHandler} className="add_button">
           Add

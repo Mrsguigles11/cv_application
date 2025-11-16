@@ -18,6 +18,11 @@ function Content() {
     "Educational Experience" : {
         inputs : {
         "University of Greenwich" : ["BSc Digital Film Production", "2016 - 2020"],
+        },
+        currentInput : {
+          schoolName : "", 
+          dateOfStudy : "",
+          study : ""
         }
       }
   });
@@ -26,6 +31,7 @@ function Content() {
     let updatedObject = { ...cvContent };
     updatedObject[section][input] = text;
     setcvContent(updatedObject);
+    console.log(cvContent)
   }
 
   function handleHeadingClick (index) {
@@ -47,7 +53,6 @@ function Content() {
         />
         <InputEducationalExperience 
           heading={"Educational Experience"}
-          inputs={["School Name", "Date of Study", "Study"]}
           onChange={handleChange}
           headingClick={handleHeadingClick}
           content={cvContent}
