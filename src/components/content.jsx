@@ -4,7 +4,6 @@ import InputEducationalExperience from "./input_edu_exp";
 import CV from "./cv";
 import "../styles/input_section.css";
 
-
 function Content() {
   const [cvContent, setcvContent] = useState({
     "General Information": {
@@ -15,31 +14,45 @@ function Content() {
       Profile:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     },
-    "Educational Experience" : {
-        inputs : {
-        "University of Greenwich" : ["BSc Digital Film Production", "2016 - 2020"],
-        },
-        currentInput : {
-          schoolName : "", 
-          dateOfStudy : "",
-          study : ""
-        }
-      }
+    "Educational Experience": {
+      inputs: {
+        "University of Greenwich": [
+          "BSc Digital Film Production",
+          "2016 - 2020",
+        ],
+      },
+      currentInput: {
+        schoolName: "",
+        dateOfStudy: "",
+        study: "",
+      },
+    },
   });
 
   function handleChange(text, section, input) {
     let updatedObject = { ...cvContent };
-    updatedObject[section][input] = text;
+    if (input === undefined) {
+      updatedObject[section] = text;
+    } else {
+      updatedObject[section][input] = text;
+    }
     setcvContent(updatedObject);
-    console.log(cvContent)
   }
 
-  function handleHeadingClick (index) {
-  const collapsibleContents = document.querySelectorAll('.collapsible_content');
-  const inputSections = document.querySelectorAll('.input_section');
-  collapsibleContents[index].className === "collapsible_content cc_hidden" ? collapsibleContents[index].className = "collapsible_content cc_visible" : collapsibleContents[index].className = "collapsible_content cc_hidden";
-  inputSections[index].className === "input_section" ? inputSections[index].className = "input_section expanded" : inputSections[index].className = "input_section";
-}
+  function handleHeadingClick(index) {
+    const collapsibleContents = document.querySelectorAll(
+      ".collapsible_content"
+    );
+    const inputSections = document.querySelectorAll(".input_section");
+    collapsibleContents[index].className === "collapsible_content cc_hidden"
+      ? (collapsibleContents[index].className =
+          "collapsible_content cc_visible")
+      : (collapsibleContents[index].className =
+          "collapsible_content cc_hidden");
+    inputSections[index].className === "input_section"
+      ? (inputSections[index].className = "input_section expanded")
+      : (inputSections[index].className = "input_section");
+  }
 
   return (
     <>
@@ -51,12 +64,12 @@ function Content() {
           headingClick={handleHeadingClick}
           content={cvContent}
         />
-        <InputEducationalExperience 
+        <InputEducationalExperience
           heading={"Educational Experience"}
           onChange={handleChange}
           headingClick={handleHeadingClick}
           content={cvContent}
-          />
+        />
       </div>
       <div className="cv_container">
         <CV text={cvContent}></CV>
@@ -64,7 +77,5 @@ function Content() {
     </>
   );
 }
-
-
 
 export default Content;

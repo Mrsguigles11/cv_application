@@ -12,7 +12,7 @@ function InputEducationalExperience({
   );
 
   function removeEduEx(school) {
-    let currentInputs = { ...content["Educational Experience"]["inputs"]};
+    let currentInputs = { ...content["Educational Experience"]["inputs"] };
     delete currentInputs[school];
     onChange(currentInputs, "Educational Experience", "inputs");
   }
@@ -29,9 +29,17 @@ function InputEducationalExperience({
     const study = document.querySelector('textarea[name="Study"]');
     const eduExpInputs = document.querySelector(".edu_exp_inputs_visible");
 
-    const currentInputs = { ...content["Educational Experience"]["inputs"]};
-    currentInputs[schoolName.value] = [[study.value], [dateOfStudy.value]];
-    onChange(currentInputs, "Educational Experience", "inputs");
+    const updatedEduExp = { ...content["Educational Experience"] };
+    updatedEduExp["inputs"][schoolName.value] = [
+      [study.value],
+      [dateOfStudy.value],
+    ];
+
+    updatedEduExp.currentInput.schoolName = "";
+    updatedEduExp.currentInput.dateOfStudy = "";
+    updatedEduExp.currentInput.study = "";
+    onChange(updatedEduExp, "Educational Experience");
+
     schoolName.value = "";
     dateOfStudy.value = "";
     study.value = "";
@@ -41,9 +49,11 @@ function InputEducationalExperience({
   }
 
   function handleChange(value, input) {
-    const currentInputs = { ...content["Educational Experience"]["currentInput"]};
-    currentInputs[input] = value;
-    onChange(currentInputs, "Educational Experience", "currentInput");
+    const currentInput = {
+      ...content["Educational Experience"]["currentInput"],
+    };
+    currentInput[input] = value;
+    onChange(currentInput, "Educational Experience", "currentInput");
   }
 
   return (
@@ -94,7 +104,6 @@ function InputEducationalExperience({
               type="text"
               name={"Date of Study"}
               onChange={(e) => handleChange(e.target.value, "dateOfStudy")}
-
             />
           </div>
           <div className="study_input" key={"Study"}>

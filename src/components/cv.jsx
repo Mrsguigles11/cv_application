@@ -18,7 +18,7 @@ function CV({ text }) {
           return (
             <div className="school">
             <div>
-              <div className="school_name">{school}</div>
+              <h4 className="school_name">{school}</h4>
               <i>{details[0]}</i>
             </div>
             <div>{details[1]}</div>
@@ -26,6 +26,13 @@ function CV({ text }) {
           )
         }
       )}
+      <div className="school">
+            <div>
+              <h4 className="school_name">{text["Educational Experience"]["currentInput"]["schoolName"]}</h4>
+              <i>{text["Educational Experience"]["currentInput"]["study"]}</i>
+            </div>
+            <div>{text["Educational Experience"]["currentInput"]["dateOfStudy"]}</div>
+            </div>
       </div>
     </div>
 
