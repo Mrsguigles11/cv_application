@@ -38,16 +38,13 @@
     background-color: white;
     cursor: pointer;
     font-weight: 600;
+    margin-top: 20px;
 }
 
 .add_button:hover {
     background-color: rgb(228, 228, 228);
 }
 
-.study_input {
-    grid-column: 1 / 3;
-    margin-bottom: 20px;
-}
 
 .edu_exp_inputs_visible {
     display: grid;

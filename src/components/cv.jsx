@@ -34,6 +34,8 @@ function CV({ text }) {
             <div>{text["Educational Experience"]["currentInput"]["dateOfStudy"]}</div>
             </div>
       </div>
+      <h3>Additional Information</h3>
+      <div className="additional_info">{text["Additional Information"]["Additional Information"]}</div>
     </div>
 
   );

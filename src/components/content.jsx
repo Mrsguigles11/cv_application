@@ -1,5 +1,5 @@
 import { useState } from "react";
-import InputGeneralInfo from "./input_gen_info";
+import InputSection from "./input_gen_info";
 import InputEducationalExperience from "./input_edu_exp";
 import CV from "./cv";
 import "../styles/input_section.css";
@@ -28,6 +28,9 @@ function Content() {
         study: "",
       },
     },
+    "Additional Information" : {
+      "Additional Information" : "",
+    }
   });
 
   function handleChange(text, section, input) {
@@ -56,18 +59,27 @@ function Content() {
   return (
     <>
       <div className="inputs_container">
-        <InputGeneralInfo
+        <InputSection
           heading={"General Information"}
           inputs={["Name", "Email", "Phone Number", "Github", "Profile"]}
           onChange={handleChange}
           headingClick={handleHeadingClick}
           content={cvContent}
+          index={0}
         />
         <InputEducationalExperience
           heading={"Educational Experience"}
           onChange={handleChange}
           headingClick={handleHeadingClick}
           content={cvContent}
+        />
+        <InputSection
+          heading={"Additional Information"}
+          inputs={["Additional Information"]}
+          onChange={handleChange}
+          headingClick={handleHeadingClick}
+          content={cvContent}
+          index={2}
         />
       </div>
       <div className="cv_container">
