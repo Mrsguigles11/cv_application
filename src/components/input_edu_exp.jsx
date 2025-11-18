@@ -50,11 +50,13 @@ function InputEducationalExperience({
     eduExpInputs.className = "edu_exp_inputs_hidden";
 
     setButtonClickHandler(() => intialiseAddEduEx);
+    setinputValue("currentInput")
   }
 
   function intialiseEditEduEx(input) {
+    if (inputValue === "currentInput") {
     const eduExpInputs = document.querySelector(".edu_exp_inputs_hidden");
-    eduExpInputs.className = "edu_exp_inputs_visible";
+    eduExpInputs.className = "edu_exp_inputs_visible"; }
 
     const schoolName = document.querySelector('input[name="School Name"]');
     const dateOfStudy = document.querySelector('input[name="Date of Study"]');

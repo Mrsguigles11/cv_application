@@ -36,7 +36,6 @@ function Content() {
     } else {
       setcvContent(prev => ({...prev, [section]: {...prev[section], [input] : text}}));
     }
-    console.log(cvContent)
   }
 
   function handleHeadingClick(index) {
