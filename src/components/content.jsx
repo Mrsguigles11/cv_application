@@ -16,10 +16,11 @@ function Content() {
     },
     "Educational Experience": {
       inputs: {
-        "University of Greenwich": [
-          "BSc Digital Film Production",
-          "2016 - 2020",
-        ],
+        "University of Greenwich": {
+          schoolName : "University of Greenwich",
+          study : "BSc Digital Film Production",
+          dateOfStudy : "2016 - 2020",
+      },
       },
       currentInput: {
         schoolName: "",
@@ -30,13 +31,12 @@ function Content() {
   });
 
   function handleChange(text, section, input) {
-    let updatedObject = { ...cvContent };
     if (input === undefined) {
-      updatedObject[section] = text;
+      setcvContent(prev => ({...prev, [section]: text}));
     } else {
-      updatedObject[section][input] = text;
+      setcvContent(prev => ({...prev, [section]: {...prev[section], [input] : text}}));
     }
-    setcvContent(updatedObject);
+    console.log(cvContent)
   }
 
   function handleHeadingClick(index) {

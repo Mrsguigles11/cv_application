@@ -21,7 +21,7 @@
     color: white;
 } 
 
-.education_input > svg {
+.svg_container > svg {
     fill: white;
     height: 25px;
     cursor: pointer;
