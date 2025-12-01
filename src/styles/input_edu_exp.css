@@ -1,4 +1,4 @@
-.education_input {
+.input_card {
     grid-column: 1 / 3;
     display: flex;
     align-items: center;
@@ -10,14 +10,14 @@
     min-height: 77px;
 }
 
-.edu_input_content {
+.input_card_content {
     display: flex;
     align-items: end;
     justify-content: space-between;
     flex-grow: 1;
 }
 
-.education_input > div, .study_input > label {
+.input_card > div, .large_input > label {
     color: white;
 } 
 
@@ -59,6 +59,6 @@
 }
 
 
-.study_input > textarea {
+.large_input > textarea {
     min-height: 40px;
 }

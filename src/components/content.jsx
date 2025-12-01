@@ -54,6 +54,7 @@ function Content() {
     inputSections[index].className === "input_section"
       ? (inputSections[index].className = "input_section expanded")
       : (inputSections[index].className = "input_section");
+
   }
 
   return (
@@ -74,6 +75,9 @@ function Content() {
           onChange={handleChange}
           headingClick={handleHeadingClick}
           content={cvContent}
+          inputClasses={["edu_exp_inputs_hidden", "edu_exp_inputs_visible"]}
+          inputs={["School Name", "Date of Study", "Study"]}
+          keys={["schoolName", "dateOfStudy", "study"]}
         />
         <InputSection
           heading={"Additional Information"}
