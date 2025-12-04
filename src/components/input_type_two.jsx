@@ -1,7 +1,7 @@
-import "../styles/input_edu_exp.css";
+import "../styles/input_type_two.css";
 import { useState } from "react";
 
-function InputEducationalExperience({
+function InputTypeTwo({
   heading,
   onChange,
   content,
@@ -181,4 +181,4 @@ function InputEducationalExperience({
   );
 }
 
-export default InputEducationalExperience;
+export default InputTypeTwo;
