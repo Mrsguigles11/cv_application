@@ -17,10 +17,10 @@ function Content() {
     "Educational Experience": {
       inputs: {
         "University of Greenwich": {
-          schoolName : "University of Greenwich",
-          study : "BSc Digital Film Production",
-          dateOfStudy : "2016 - 2020",
-      },
+          schoolName: "University of Greenwich",
+          study: "BSc Digital Film Production",
+          dateOfStudy: "2016 - 2020",
+        },
       },
       currentInput: {
         schoolName: "",
@@ -28,16 +28,33 @@ function Content() {
         study: "",
       },
     },
-    "Additional Information" : {
-      "Additional Information" : "",
-    }
+    "Practical Experience": {
+      inputs: {
+        "Pizza Hut": {
+          company: "Pizza Hut",
+          position: "Delivery Driver",
+          date: "2019 - 2020",
+        },
+      },
+      currentInput: {
+        company: "",
+        position: "",
+        date: "",
+      },
+    },
+    "Additional Information": {
+      "Additional Information": "Full clean drivers licence",
+    },
   });
 
   function handleChange(text, section, input) {
     if (input === undefined) {
-      setcvContent(prev => ({...prev, [section]: text}));
+      setcvContent((prev) => ({ ...prev, [section]: text }));
     } else {
-      setcvContent(prev => ({...prev, [section]: {...prev[section], [input] : text}}));
+      setcvContent((prev) => ({
+        ...prev,
+        [section]: { ...prev[section], [input]: text },
+      }));
     }
   }
 
@@ -54,7 +71,6 @@ function Content() {
     inputSections[index].className === "input_section"
       ? (inputSections[index].className = "input_section expanded")
       : (inputSections[index].className = "input_section");
-
   }
 
   return (
@@ -67,8 +83,12 @@ function Content() {
           headingClick={handleHeadingClick}
           content={cvContent}
           index={0}
-          svg={<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>account-circle</title><path d="M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z" /></svg>
-}
+          svg={
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <title>account-circle</title>
+              <path d="M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z" />
+            </svg>
+          }
         />
         <InputTypeTwo
           heading={"Educational Experience"}
@@ -78,10 +98,27 @@ function Content() {
           index={0}
           inputs={["School Name", "Date of Study", "Study"]}
           keys={["schoolName", "dateOfStudy", "study"]}
-          svg={<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <title>school</title>
-          <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z" />
-        </svg>}
+          svg={
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <title>school</title>
+              <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z" />
+            </svg>
+          }
+        />
+        <InputTypeTwo
+          heading={"Practical Experience"}
+          onChange={handleChange}
+          headingClick={handleHeadingClick}
+          content={cvContent}
+          index={1}
+          inputs={["Company Name", "Position", "Date"]}
+          keys={["company", "position", "date"]}
+          svg={
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <title>briefcase</title>
+              <path d="M10,2H14A2,2 0 0,1 16,4V6H20A2,2 0 0,1 22,8V19A2,2 0 0,1 20,21H4C2.89,21 2,20.1 2,19V8C2,6.89 2.89,6 4,6H8V4C8,2.89 8.89,2 10,2M14,6V4H10V6H14Z" />
+            </svg>
+          }
         />
         <InputTypeOne
           heading={"Additional Information"}
@@ -89,8 +126,13 @@ function Content() {
           onChange={handleChange}
           headingClick={handleHeadingClick}
           content={cvContent}
-          index={2}
-          svg={<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>plus-thick</title><path d="M20 14H14V20H10V14H4V10H10V4H14V10H20V14Z" /></svg>}
+          index={3}
+          svg={
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <title>plus-thick</title>
+              <path d="M20 14H14V20H10V14H4V10H10V4H14V10H20V14Z" />
+            </svg>
+          }
         />
       </div>
       <div className="cv_container">

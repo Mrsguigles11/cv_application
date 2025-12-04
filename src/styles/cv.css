@@ -3,9 +3,9 @@
 }
 
 .cv {
-    min-height: 400px;
+    min-height: 700px;
     border: 2px solid black;
-    padding: 20px 40px;
+    padding: 20px 40px 40px;
     display: flex;
     flex-direction: column;
     row-gap: 10px;
@@ -39,22 +39,22 @@ h2 {
     margin-top: 10px;
 }
 
-.education {
+.education, .practical_experience {
     display: flex;
     flex-direction: column;
     row-gap: 10px;
 }
 
-.profile, .education {
+.profile, .education, .practical_experience, .additional_info {
     padding-left: 20px;
 }
 
-.school {
+.school, .job {
     display: flex;
     justify-content: space-between;
     align-items: end;
 }
 
-.school_name {
+.school_name, .job_name {
     font-weight: 600;
 }

@@ -103,7 +103,7 @@ function InputTypeTwo({
 
   return (
     <div className="input_section">
-      <div className="input_heading_container" onClick={() => headingClick(1)}>
+      <div className="input_heading_container" onClick={() => headingClick(index + 1)}>
         <h2>{heading}</h2>
         {svg}
       </div>

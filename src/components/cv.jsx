@@ -34,6 +34,29 @@ function CV({ text }) {
             <div>{text["Educational Experience"]["currentInput"]["dateOfStudy"]}</div>
             </div>
       </div>
+      <h3>Practical Experience</h3>
+      <div className="practical_experience">
+      {Object.entries(text["Practical Experience"]["inputs"]).map(
+        ([job, details]) => {
+          return (
+            <div className="job">
+            <div>
+              <h4 className="job_name">{details.company}</h4>
+              <i>{details.position}</i>
+            </div>
+            <div>{details.date}</div>
+            </div>
+          )
+        }
+      )}
+      <div className="job">
+            <div>
+              <h4 className="job_name">{text["Practical Experience"]["currentInput"]["company"]}</h4>
+              <i>{text["Practical Experience"]["currentInput"]["position"]}</i>
+            </div>
+            <div>{text["Practical Experience"]["currentInput"]["date"]}</div>
+            </div>
+      </div>
       <h3>Additional Information</h3>
       <div className="additional_info">{text["Additional Information"]["Additional Information"]}</div>
     </div>
