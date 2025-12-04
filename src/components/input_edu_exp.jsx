@@ -34,7 +34,6 @@ function InputEducationalExperience({
     const inputThree = document.querySelector(`textarea[name='${inputs[2]}']`);
     const inputsSection = document.querySelector("." + inputClasses[1]);
 
-    // want to add an if statement here
     const updatedInputs = { ...content[heading] };
     updatedInputs["inputs"][inputOne.value] = {
       [keys[0]]: inputOne.value,
@@ -57,11 +56,9 @@ function InputEducationalExperience({
   }
 
   function initialiseEdit(input) {
-    // this doesnt work if you click add and then edit
-    if (inputValue === "currentInput") {
       const inputsSection = document.querySelector("." + inputClasses[0]);
-      inputsSection.className = inputClasses[1];
-    }
+      if (inputsSection != null) {
+      inputsSection.className = inputClasses[1]; }
 
     const inputOne = document.querySelector(`input[name='${inputs[0]}']`);
     const inputTwo = document.querySelector(`input[name='${inputs[1]}']`);
@@ -71,7 +68,6 @@ function InputEducationalExperience({
     inputTwo.value = content[heading]["inputs"][input][keys[1]];
     inputThree.value = content[heading]["inputs"][input][keys[2]];
     setinputValue(input);
-    // want to add a parameter to add
     setButtonClickHandler(() => edit);
   }
 
@@ -90,9 +86,9 @@ function InputEducationalExperience({
     setinputValue("currentInput");
   }
 
-  function handleChange(value, input, school) {
+  function handleChange(value, input, inputHeading) {
     let currentInput;
-    if (school === "currentInput") {
+    if (inputHeading === "currentInput") {
       currentInput = {
         ...content[heading]["currentInput"],
       };
@@ -100,7 +96,7 @@ function InputEducationalExperience({
       return onChange(currentInput, heading, "currentInput");
     }
     currentInput = { ...content[heading]["inputs"] };
-    currentInput[school][input] = value;
+    currentInput[inputHeading][input] = value;
     onChange(currentInput, heading, "inputs");
   }
 

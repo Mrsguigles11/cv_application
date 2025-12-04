@@ -38,7 +38,6 @@
     background-color: white;
     cursor: pointer;
     font-weight: 600;
-    margin-top: 20px;
 }
 
 .add_button:hover {
@@ -61,4 +60,5 @@
 
 .large_input > textarea {
     min-height: 40px;
+    margin-bottom: 20px;
 }
