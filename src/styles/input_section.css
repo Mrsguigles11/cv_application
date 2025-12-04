@@ -92,3 +92,8 @@ input {
 .profile_input > textarea {
     min-height: 80px;
 }
+
+@media (max-width: 425px){
+    .input_heading_container > h2 {
+    font-size: 1.4em; }
+}
