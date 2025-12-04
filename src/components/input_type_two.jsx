@@ -6,9 +6,10 @@ function InputTypeTwo({
   onChange,
   content,
   headingClick,
-  inputClasses,
+  index,
   inputs,
   keys,
+  svg
 }) {
   const [buttonClickHandler, setButtonClickHandler] = useState(
     () => initialiseAdd
@@ -22,8 +23,8 @@ function InputTypeTwo({
   }
 
   function initialiseAdd() {
-    const inputs = document.querySelector("." + inputClasses[0]);
-    inputs.className = inputClasses[1];
+    const inputs = document.querySelectorAll(".inputs_hidden");
+    inputs[index].className = "inputs_visible";
     setButtonClickHandler(() => add);
     setinputValue("currentInput");
   }
@@ -32,7 +33,7 @@ function InputTypeTwo({
     const inputOne = document.querySelector(`input[name='${inputs[0]}']`);
     const inputTwo = document.querySelector(`input[name='${inputs[1]}']`);
     const inputThree = document.querySelector(`textarea[name='${inputs[2]}']`);
-    const inputsSection = document.querySelector("." + inputClasses[1]);
+    const inputsSection = document.querySelector(".inputs_visible");
 
     const updatedInputs = { ...content[heading] };
     updatedInputs["inputs"][inputOne.value] = {
@@ -49,16 +50,16 @@ function InputTypeTwo({
     inputOne.value = "";
     inputTwo.value = "";
     inputThree.value = "";
-    inputsSection.className = inputClasses[0];
+    inputsSection.className = "inputs_hidden";
 
     setButtonClickHandler(() => initialiseAdd);
     setinputValue("currentInput");
   }
 
   function initialiseEdit(input) {
-      const inputsSection = document.querySelector("." + inputClasses[0]);
+      const inputsSection = document.querySelectorAll(".inputs_hidden");
       if (inputsSection != null) {
-      inputsSection.className = inputClasses[1]; }
+      inputsSection[index].className = "inputs_visible"; }
 
     const inputOne = document.querySelector(`input[name='${inputs[0]}']`);
     const inputTwo = document.querySelector(`input[name='${inputs[1]}']`);
@@ -75,12 +76,12 @@ function InputTypeTwo({
     const inputOne = document.querySelector(`input[name='${inputs[0]}']`);
     const inputTwo = document.querySelector(`input[name='${inputs[1]}']`);
     const inputThree = document.querySelector(`textarea[name='${inputs[2]}']`);
-    const inputsSection = document.querySelector("." + inputClasses[1]);
+    const inputsSection = document.querySelectorAll(".inputs_visible");
 
     inputOne.value = "";
     inputTwo.value = "";
     inputThree.value = "";
-    inputsSection.className = inputClasses[0];
+    inputsSection[index].className = "inputs_hidden";
 
     setButtonClickHandler(() => initialiseAdd);
     setinputValue("currentInput");
@@ -104,10 +105,7 @@ function InputTypeTwo({
     <div className="input_section">
       <div className="input_heading_container" onClick={() => headingClick(1)}>
         <h2>{heading}</h2>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <title>school</title>
-          <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z" />
-        </svg>
+        {svg}
       </div>
       <div className="collapsible_content cc_hidden">
         {Object.entries(content[heading]["inputs"]).map(([key, details]) => {
@@ -141,7 +139,7 @@ function InputTypeTwo({
             </div>
           );
         })}
-        <div className={inputClasses[0]}>
+        <div className={"inputs_hidden"}>
           <div className="input" key={inputs[0]}>
             <label htmlFor={inputs[0]}>{inputs[0]}</label>
             <input

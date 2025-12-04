@@ -1,5 +1,5 @@
 
-function InputSection({ heading, inputs, onChange, content, headingClick, index, svg}) {
+function InputTypeOne({ heading, inputs, onChange, content, headingClick, index, svg}) {
   return (
     <div className="input_section">
       <div className="input_heading_container" onClick={() => headingClick(index)}>
@@ -39,4 +39,4 @@ function InputSection({ heading, inputs, onChange, content, headingClick, index,
   );
 }
 
-export default InputSection;
+export default InputTypeOne;

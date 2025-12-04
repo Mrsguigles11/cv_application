@@ -1,5 +1,5 @@
 import { useState } from "react";
-import InputSection from "./input_type_one";
+import InputTypeOne from "./input_type_one";
 import InputTypeTwo from "./input_type_two";
 import CV from "./cv";
 import "../styles/input_section.css";
@@ -60,7 +60,7 @@ function Content() {
   return (
     <>
       <div className="inputs_container">
-        <InputSection
+        <InputTypeOne
           heading={"General Information"}
           inputs={["Name", "Email", "Phone Number", "Github", "Profile"]}
           onChange={handleChange}
@@ -75,11 +75,15 @@ function Content() {
           onChange={handleChange}
           headingClick={handleHeadingClick}
           content={cvContent}
-          inputClasses={["edu_exp_inputs_hidden", "edu_exp_inputs_visible"]}
+          index={0}
           inputs={["School Name", "Date of Study", "Study"]}
           keys={["schoolName", "dateOfStudy", "study"]}
+          svg={<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <title>school</title>
+          <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z" />
+        </svg>}
         />
-        <InputSection
+        <InputTypeOne
           heading={"Additional Information"}
           inputs={["Additional Information"]}
           onChange={handleChange}
